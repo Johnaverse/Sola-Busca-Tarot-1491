@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Sola Busca Tarot (1491) - A digital recreation of the historically significant Renaissance tarot deck featuring 78 unique cards with classical figures.">
+    <meta name="keywords" content="Sola Busca, tarot, Renaissance, 1491, historical tarot, divination">
+    <title>The Sola Busca Tarot (1491) - Digital Deck</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400,500,600,700&family=Lato:wght@300,400,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="lang-switch">
+                <select id="langSelect">
+                    <option value="en">English</option>
+                    <option value="zh-TW">繁體中文</option>
+                </select>
+            </div>
+            <h1 class="title" data-i18n="title">The Sola Busca Tarot</h1>
+            <p class="subtitle" data-i18n="subtitle">Anno Domini 1491</p>
+            <p class="description" data-i18n="desc">A digital recreation of the earliest known complete tarot deck with
+                illustrated Minor
+                Arcana</p>
+        </header>
+
+        <main>
+            <!-- Reading Area -->
+            <div class="reading-area">
+                <!-- Initial State: Deck -->
+                <div id="deckContainer" class="deck-container">
+                    <div class="deck-stack" id="deckStack">
+                        <div class="deck-card"></div>
+                        <div class="deck-card"></div>
+                        <div class="deck-card"></div>
+                        <div class="deck-card top" id="mainDeck">
+                            <div class="deck-ornament">
+                                <div class="deck-text" data-i18n="deck_name">Sola Busca</div>
+                                <div class="deck-subtext" data-i18n="deck_sub">Divination Deck</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="instruction-text" id="instructionText" data-i18n="instr_initial">Focus on your question,
+                        then shuffle the deck.</p>
+                </div>
+
+                <!-- Spread Result: 3 Cards -->
+                <div id="spreadContainer" class="spread-container hidden">
+                    <div class="spread-card-slot" id="cardSlot1">
+                        <div class="slot-label" data-i18n="slot_1">The Situation</div>
+                        <div class="card-placeholder"></div>
+                    </div>
+                    <div class="spread-card-slot" id="cardSlot2">
+                        <div class="slot-label" data-i18n="slot_2">The Action</div>
+                        <div class="card-placeholder"></div>
+                    </div>
+                    <div class="spread-card-slot" id="cardSlot3">
+                        <div class="slot-label" data-i18n="slot_3">The Outcome</div>
+                        <div class="card-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="shuffleButton" class="btn btn-primary">
+                    <span class="btn-ornament">✦</span> <span data-i18n="btn_shuffle">Shuffle & Focus</span> <span
+                        class="btn-ornament">✦</span>
+                </button>
+                <button id="drawButton" class="btn" disabled>
+                    <span class="btn-ornament">✦</span> <span data-i18n="btn_reveal">Reveal Spread</span> <span
+                        class="btn-ornament">✦</span>
+                </button>
+                <button id="resetButton" class="btn hidden">
+                    <span class="btn-ornament">↺</span> <span data-i18n="btn_new">New Reading</span>
+                </button>
+            </div>
+
+            <!-- Guide Section -->
+            <section class="guide-section">
+                <div class="guide-container">
+                    <h2 class="guide-title"><span class="ornament">✦</span> <span data-i18n="guide_title">Guide to the
+                            Sola Busca</span> <span class="ornament">✦</span></h2>
+
+                    <div class="guide-grid">
+                        <div class="guide-card">
+                            <h3 data-i18n="guide_1_title">A Renaissance Masterpiece</h3>
+                            <p data-i18n="guide_1_text">Created in 1491, this is the oldest complete 78-card tarot deck
+                                in existence. Unlike
+                                other decks of its time, it features <strong>fully illustrated pip cards</strong> (Minor
+                                Arcana) depicting dynamic scenes of daily life, alchemy, and warfare.</p>
+                        </div>
+
+                        <div class="guide-card">
+                            <h3 data-i18n="guide_2_title">The Heroes of Antiquity</h3>
+                            <p data-i18n="guide_2_text">The 22 Major Arcana (Trumps) deviate from traditional tarot
+                                archetypes. You will meet
+                                <strong>historical figures</strong> from the Roman Empire and biblical history, such as
+                                <em>Mato</em> (The Fool), <em>Panfilio</em>, and <em>Nabuchodenasor</em>.
+                            </p>
+                        </div>
+
+                        <div class="guide-card">
+                            <h3 data-i18n="guide_3_title">The Three-Card Spread</h3>
+                            <p><span data-i18n="guide_3_text">This deck performs a classic
+                                    <strong>Situation-Action-Outcome</strong> spread:</span></p>
+                            <ul>
+                                <li data-i18n="guide_3_li1"><strong>I. The Situation:</strong> The core energy of your
+                                    current moment.</li>
+                                <li data-i18n="guide_3_li2"><strong>II. The Action:</strong> Guidance on what to do (or
+                                    avoid).</li>
+                                <li data-i18n="guide_3_li3"><strong>III. The Outcome:</strong> The potential result if
+                                    advice is followed.</li>
+                            </ul>
+                            <p data-i18n="guide_3_note">Allow the intricate 15th-century imagery to speak to your
+                                intuition directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-ornament">❦</div>
+            <p class="footer-text" data-i18n="footer_main">The Sola Busca Tarot (1491) • Preserved by the Pinacoteca di
+                Brera, Milan</p>
+            <p class="footer-subtext" data-i18n="footer_sub">Digital facsimile for historical study and divination</p>
+        </footer>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>
