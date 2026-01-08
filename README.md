@@ -2,15 +2,20 @@
 
 A beautiful, historically accurate digital recreation of the Sola Busca tarot deck, the oldest known complete 78-card tarot deck with illustrated Minor Arcana, created circa 1491 in Renaissance Italy.
 
-![Sola Busca Tarot](assets/cards/major-00-mato.png)
+![Sola Busca Tarot](docs/assets/cards/major-00-mato.jpg)
 
 ## ✨ Features
 
-- **Complete 78-Card Deck**: All 22 Major Arcana and 56 Minor Arcana cards
-- **Historically Accurate**: Major Arcana feature unique classical figures (Panfilio, Mario, Nerone, etc.) instead of traditional names
-- **Renaissance Aesthetic**: Aged parchment colors, period typography, and engraved-style borders
-- **Interactive Card Drawing**: Random card selection with no-repeat logic
-- **Responsive Design**: Works beautifully on desktop and mobile devices
+- **Complete 78-Card Deck**: All 22 Major Arcana and 56 Minor Arcana cards.
+- **Multiple Reading Modes**:
+  - **Single Card**: For quick daily guidance.
+  - **Three-Card Spread**: Classic Situation-Action-Outcome layout.
+  - **Celtic Cross**: A comprehensive 10-card spread for deep insights.
+- **Bilingual Support**: Fully localized in English and Traditional Chinese (繁體中文).
+- **Reading Journal**: Automatically save and review your past readings (stored locally).
+- **Immersive Experience**: featuring synthetic sound effects (Web Audio API), 3D card flips, and reversed card interpretations.
+- **Historically Accurate**: Major Arcana feature unique classical figures (Panfilio, Mario, Nerone, etc.) instead of traditional names.
+- **Renaissance Aesthetic**: Aged parchment colors, period typography, and engraved-style borders.
 
 ## 🎴 The Deck
 
@@ -55,7 +60,7 @@ Four suits, each with 14 cards:
 
 2. **Open the application**
    
-   Simply open `index.html` in your web browser. No build process or server required!
+   Simply open `docs/index.html` in your web browser. No build process or server required!
    
    For the best experience, you can use a local server:
    ```bash
@@ -66,12 +71,12 @@ Four suits, each with 14 cards:
    npx http-server
    ```
    
-   Then navigate to `http://localhost:8000`
+   Then navigate to `http://localhost:8000/docs/`
 
 3. **Start drawing cards!**
-   - Click "Draw Card" to randomly select a card from the deck
-   - Each card can only be drawn once until you reset
-   - Click "Reset Deck" to return all 78 cards to the pool
+   - Choose your reading mode (Single, Three-Card, or Celtic Cross).
+   - Shuffle and select your cards.
+   - Reveal your fate and save it to your journal.
 
 ## 🎨 Design Philosophy
 
@@ -80,23 +85,22 @@ The design evokes the feeling of handling a rare 15th-century artifact:
 - **Color Palette**: Muted earth tones (aged parchment, sepia, charcoal, faded gold)
 - **Typography**: Cormorant Garamond (antique serif) and Lato (clean sans-serif)
 - **Visual Elements**: Engraved-style borders, subtle parchment texture, soft worn edges
-- **Animations**: Smooth card flip transitions and hover effects
+- **Animations**: Smooth card flip transitions, fanned selection, and hover effects
 
 ## 🖼️ Card Images
 
 This project includes:
-- **6 AI-generated cards**: High-quality Renaissance-style illustrations for select Major Arcana
-- **72 SVG placeholders**: Elegant placeholder designs for the remaining cards
+- **Complete 78-Card Deck**: High-quality digital facsimiles/recreations in JPG format.
 
 ### Replacing Card Images
 
 To use your own card images:
 
-1. Place your images in the `assets/cards/` directory
+1. Place your images in the `docs/assets/cards/` directory
 2. Follow the naming convention:
-   - Major Arcana: `major-XX-name.png` (e.g., `major-00-mato.png`)
-   - Minor Arcana: `suitname-XX.png` (e.g., `swords-01.png`, `cups-queen.png`)
-3. Update the file extensions in `app.js` if needed (currently supports both `.png` and `.svg`)
+   - Major Arcana: `major-XX-name.jpg` (e.g., `major-00-mato.jpg`)
+   - Minor Arcana: `suitname-XX.jpg` (e.g., `swords-01.jpg`, `cups-queen.jpg`)
+3. Update the file extensions in `docs/app.js` if needed (currently configured for `.jpg`)
 
 ## 📚 Historical Context
 
@@ -109,34 +113,33 @@ The Sola Busca tarot deck was created around 1491 in Italy and is notable for:
 
 ## 🛠️ Technical Details
 
-- **Pure HTML/CSS/JavaScript** - No frameworks or dependencies
-- **Responsive Design** - Mobile-first approach
-- **Semantic HTML5** - Proper SEO and accessibility
-- **Modern CSS** - Custom properties, flexbox, animations
-- **Vanilla JavaScript** - Clean, readable game logic
+- **Core**: HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Audio**: Web Audio API for synthetic sound generation (no external audio files)
+- **Persistence**: LocalStorage for saving language preference and reading history
+- **Responsive**: Mobile-first fluid design using Flexbox and CSS Grid
+- **Accessibility**: Semantic HTML and ARIA labels
 
 ## 📁 Project Structure
 
 ```
 tarot/
-├── index.html              # Main HTML structure
-├── styles.css              # Renaissance-themed styles
-├── app.js                  # Card data and game logic
-├── generate_cards.py       # Script to generate SVG placeholders
-├── assets/
-│   └── cards/              # Card images (PNG and SVG)
-└── README.md               # This file
+├── docs/
+│   ├── index.html              # Main HTML structure
+│   ├── styles.css              # Renaissance-themed styles
+│   ├── app.js                  # Logic, state, translations, audio
+│   └── assets/
+│       └── cards/              # Card images (JPG)
+├── wikimedia_files.json        # Source tracking for images
+├── AGENT_INSTRUCTIONS.md       # AI Agent Context
+└── README.md                   # This file
 ```
 
 ## 🎯 Future Enhancements
 
 Potential improvements:
-- Add card meanings and interpretations
-- Implement multi-card spreads (Celtic Cross, Three-Card, etc.)
-- Add reading history and journal
-- Include sound effects for card drawing
-- Add card reversal option
-- Create print-friendly card layouts
+- More complex spreads
+- Export reading to image/PDF
+- "Daily Draw" notifications
 
 ## 📜 License
 
@@ -146,8 +149,4 @@ This project is open source. The Sola Busca tarot deck itself is in the public d
 
 - Historical research from various tarot history sources
 - Card data based on the original 1491 Sola Busca deck
-- AI-generated card illustrations created with period-appropriate styling
-
----
-
-**Enjoy your journey through Renaissance tarot history!** ✦
+- AI-generated/enhanced card illustrations created with period-appropriate styling

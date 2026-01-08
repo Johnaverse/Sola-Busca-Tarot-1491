@@ -22,11 +22,17 @@
 <body>
     <div class="container">
         <header>
-            <div class="lang-switch">
-                <select id="langSelect">
-                    <option value="en">English</option>
-                    <option value="zh-TW">繁體中文</option>
-                </select>
+            <div class="top-controls">
+                <div class="lang-switch-wrapper">
+                    <span class="icon">🌐</span>
+                    <select id="langSelect" class="btn-icon-select">
+                        <option value="en">English</option>
+                        <option value="zh-TW">繁體中文</option>
+                    </select>
+                </div>
+                <button id="historyToggleButton" class="btn-icon">
+                    <span class="icon">📜</span> <span data-i18n="btn_history">Journal</span>
+                </button>
             </div>
             <h1 class="title" data-i18n="title">The Sola Busca Tarot</h1>
             <p class="subtitle" data-i18n="subtitle">Anno Domini 1491</p>
@@ -70,15 +76,27 @@
                         <div class="card-placeholder"></div>
                     </div>
                 </div>
+                <div id="saveActionContainer" class="save-action-container hidden">
+                    <button id="saveReadingButton" class="btn btn-secondary">
+                        <span class="btn-ornament">❦</span> <span data-i18n="btn_save">Save to Journal</span> <span
+                            class="btn-ornament">❦</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Controls -->
+            <div class="reading-modes">
+                <button id="mode3" class="btn-mode active" data-mode="3" data-i18n="mode_3">Three-Card Spread</button>
+                <button id="mode10" class="btn-mode" data-mode="10" data-i18n="mode_10">Celtic Cross</button>
+                <button id="mode1" class="btn-mode" data-mode="1" data-i18n="mode_1">Single Card Reading</button>
+            </div>
+
             <div class="controls">
                 <button id="shuffleButton" class="btn btn-primary">
                     <span class="btn-ornament">✦</span> <span data-i18n="btn_shuffle">Shuffle & Focus</span> <span
                         class="btn-ornament">✦</span>
                 </button>
-                <button id="drawButton" class="btn" disabled>
+                <button id="drawButton" class="btn hidden" disabled>
                     <span class="btn-ornament">✦</span> <span data-i18n="btn_reveal">Reveal Spread</span> <span
                         class="btn-ornament">✦</span>
                 </button>
@@ -112,19 +130,33 @@
                         </div>
 
                         <div class="guide-card">
-                            <h3 data-i18n="guide_3_title">The Three-Card Spread</h3>
-                            <p><span data-i18n="guide_3_text">This deck performs a classic
-                                    <strong>Situation-Action-Outcome</strong> spread:</span></p>
+                            <h3 data-i18n="guide_3_title">Single Card Reading</h3>
+                            <p data-i18n="guide_3_text">Focus on a single question and draw one card for direct, clear
+                                insight.</p>
+                            <p data-i18n="guide_3_note">Ideal for daily guidance or when you need a straightforward
+                                answer.</p>
+                        </div>
+
+                        <div class="guide-card">
+                            <h3 data-i18n="guide_4_title">Three-Card Spread</h3>
+                            <p><span data-i18n="guide_4_text">A classic <strong>Situation-Action-Outcome</strong>
+                                    spread:</span></p>
                             <ul>
-                                <li data-i18n="guide_3_li1"><strong>I. The Situation:</strong> The core energy of your
+                                <li data-i18n="guide_4_li1"><strong>I. The Situation:</strong> The core energy of your
                                     current moment.</li>
-                                <li data-i18n="guide_3_li2"><strong>II. The Action:</strong> Guidance on what to do (or
+                                <li data-i18n="guide_4_li2"><strong>II. The Action:</strong> Guidance on what to do (or
                                     avoid).</li>
-                                <li data-i18n="guide_3_li3"><strong>III. The Outcome:</strong> The potential result if
+                                <li data-i18n="guide_4_li3"><strong>III. The Outcome:</strong> The potential result if
                                     advice is followed.</li>
                             </ul>
-                            <p data-i18n="guide_3_note">Allow the intricate 15th-century imagery to speak to your
-                                intuition directly.</p>
+                        </div>
+
+                        <div class="guide-card">
+                            <h3 data-i18n="guide_5_title">Celtic Cross</h3>
+                            <p data-i18n="guide_5_text">A comprehensive 10-card spread revealing the <strong>complete
+                                    picture</strong> of your situation, influences, and potential outcomes.</p>
+                            <p data-i18n="guide_5_note">Perfect for complex questions requiring deep insight into past,
+                                present, future, and hidden forces.</p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +171,24 @@
         </footer>
     </div>
 
-    <script src="app.js?v=2"></script>
+    <!-- History Overlay -->
+    <div id="historyOverlay" class="history-overlay hidden">
+        <div class="history-panel">
+            <div class="history-header">
+                <h2 data-i18n="history_title">Reading Journal</h2>
+                <button id="closeHistoryButton" class="btn-close">&times;</button>
+            </div>
+            <div id="historyContent" class="history-content">
+                <!-- History items will be injected here -->
+                <p class="empty-msg" data-i18n="empty_history">Your journal is empty.</p>
+            </div>
+            <div class="history-footer">
+                <button id="clearHistoryButton" class="btn btn-small" data-i18n="btn_clear">Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=3"></script>
 </body>
 
 </html>

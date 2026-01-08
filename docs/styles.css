@@ -12,29 +12,68 @@
 }
 
 :root {
-    /* Color Palette - Deep Renaissance */
-    --bg-base: #2C241B;
+    /* Color Palette - Premium Renaissance */
+    --bg-base: #1a1510;
     --bg-paper: #D9CBAE;
     --text-main: #3E3221;
-    --text-light: #EAE0D5;
-    --text-gold: #C0A062;
-    --accent-red: #8B2635;
-
+    --text-light: #f4ece2;
+    --gold: #d4af37;
+    --gold-muted: #A68B56;
+    --venetian-red: #a82e3c;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-heavy: rgba(0, 0, 0, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --blur: blur(12px);
     --font-serif: 'Cormorant Garamond', serif;
     --font-sans: 'Lato', sans-serif;
-    --radius-main: 8px;
-    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --radius-main: 12px;
+    --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.6);
+    --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-base);
-    background-image: radial-gradient(circle at center, #3a3125 0%, #1f1912 100%);
+    background-image:
+        radial-gradient(circle at 20% 30%, #2c241b 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, #2c241b 0%, transparent 40%),
+        radial-gradient(circle at center, #1a1510 0%, #0d0a08 100%);
     color: var(--text-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    font-variant-numeric: oldstyle-nums;
+    font-feature-settings: "liga", "dlig";
+}
+
+/* Ambient Particles */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    animation: ambientFloat 60s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes ambientFloat {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
 }
 
 .container {
@@ -44,6 +83,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 /* ===== Header ===== */
@@ -55,7 +96,7 @@ header {
 .title {
     font-family: var(--font-serif);
     font-size: 3.5rem;
-    color: var(--text-gold);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
@@ -108,7 +149,7 @@ header {
     width: 100%;
     height: 100%;
     background: #3E3221;
-    border: 1px solid var(--text-gold);
+    border: 1px solid var(--gold);
     border-radius: var(--radius-main);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -130,7 +171,7 @@ header {
 }
 
 .deck-ornament {
-    border: 2px solid var(--text-gold);
+    border: 2px solid var(--gold);
     padding: 1rem 2rem;
     background: rgba(44, 36, 27, 0.9);
 }
@@ -138,7 +179,7 @@ header {
 .deck-text,
 .deck-subtext {
     font-family: var(--font-serif);
-    color: var(--text-gold);
+    color: var(--gold);
 }
 
 .deck-text {
@@ -151,24 +192,80 @@ header {
 }
 
 /* Shuffle Animation */
-@keyframes shuffleShake {
+@keyframes splitStack {
+    0% {
+        transform: translateX(0);
+    }
 
-    0%,
     100% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-2deg) translate(-5px, 0);
-    }
-
-    75% {
-        transform: rotate(2deg) translate(5px, 0);
+        transform: translateX(-60px) rotate(-5deg);
     }
 }
 
-.shuffling .deck-stack {
-    animation: shuffleShake 0.5s infinite;
+@keyframes splitStackRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(60px) rotate(5deg);
+    }
+}
+
+@keyframes riffleStack {
+    0% {
+        transform: translateX(-60px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateX(0) scale(1.05);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes riffleStackRight {
+    0% {
+        transform: translateX(60px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateX(0) scale(1.05);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+.deck-stack.shuffling .deck-card {
+    /* Hide original cards during special animation */
+    opacity: 0;
+}
+
+/* Pseudo-elements/Classes for the split piles */
+.shuffle-pile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #3E3221;
+    background-image: url('assets/card-back.png');
+    background-size: cover;
+    border: 1px solid var(--gold);
+    border-radius: var(--radius-main);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+}
+
+.shuffle-left {
+    animation: splitStack 0.4s ease forwards, riffleStack 0.6s ease 0.4s forwards;
+}
+
+.shuffle-right {
+    animation: splitStackRight 0.4s ease forwards, riffleStackRight 0.6s ease 0.4s forwards;
 }
 
 .instruction-text {
@@ -221,12 +318,12 @@ header {
 
 .slot-label {
     font-family: var(--font-serif);
-    color: var(--text-gold);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    border-bottom: 1px solid var(--text-gold);
+    border-bottom: 1px solid var(--gold);
     padding-bottom: 0.2rem;
 }
 
@@ -242,37 +339,96 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Stack image and text */
+    perspective: 1000px;
 }
 
-.spread-card img {
-    width: 100%;
+.card-inner {
+    position: relative;
+    width: 220px;
     height: 380px;
-    /* Fixed height for image only */
-    object-fit: cover;
+    text-align: center;
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.spread-card.revealed .card-inner {
+    transform: rotateY(180deg) scale(1.1);
+    /* Slight default zoom */
+}
+
+.spread-card.revealed .card-inner:hover {
+    transform: rotateY(180deg) scale(1.35);
+    /* Zoom in to check */
+    z-index: 50;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border-radius: var(--radius-main);
     box-shadow: var(--shadow-deep);
-    border: 1px solid var(--text-gold);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid var(--gold);
 }
 
-.spread-card.revealed img {
-    opacity: 1;
-    transform: translateY(0);
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    background: #3E3221;
+    background-image: url('assets/card-back.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.card-back::after {
+    content: '❦';
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.3;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-main);
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.spread-card.reversed .img-wrapper img {
+    transform: rotate(180deg);
 }
 
 .spread-info {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     text-align: center;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s ease 0.5s;
-    background: rgba(0, 0, 0, 0.4);
-    /* Add background for legibility if it overlaps */
-    padding: 0.5rem;
-    border-radius: 4px;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.8s;
+    background: var(--glass);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    padding: 1.2rem;
+    border-radius: var(--radius-main);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .spread-card.revealed .spread-info {
@@ -289,9 +445,61 @@ header {
 
 .spread-info p {
     color: #ccc;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-style: italic;
     line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.card-history {
+    font-size: 0.85rem;
+    color: var(--gold-muted);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 0.8rem;
+    text-align: left;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+.card-history strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+/* Reading Modes Toggle */
+.reading-modes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-mode {
+    background: transparent;
+    border: 1px solid var(--gold-muted);
+    color: var(--gold-muted);
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-mode.active {
+    background: var(--gold);
+    color: var(--bg-base);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-mode:hover:not(.active) {
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 /* ===== Controls ===== */
@@ -304,8 +512,8 @@ header {
 
 .btn {
     background: rgba(192, 160, 98, 0.1);
-    border: 1px solid var(--text-gold);
-    color: var(--text-gold);
+    border: 1px solid var(--gold);
+    color: var(--gold);
     padding: 1rem 2rem;
     font-family: var(--font-sans);
     text-transform: uppercase;
@@ -316,7 +524,7 @@ header {
 }
 
 .btn:hover:not(:disabled) {
-    background: var(--text-gold);
+    background: var(--gold);
     color: var(--bg-base);
     box-shadow: 0 0 20px rgba(192, 160, 98, 0.3);
 }
@@ -343,7 +551,7 @@ header {
 }
 
 .guide-container h2 {
-    color: var(--text-gold);
+    color: var(--gold);
     font-family: var(--font-serif);
     text-align: center;
     margin-bottom: 2rem;
@@ -361,7 +569,7 @@ header {
     font-family: var(--font-serif);
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid var(--accent-red);
+    border-bottom: 1px solid var(--venetian-red);
     display: inline-block;
 }
 
@@ -387,42 +595,120 @@ footer {
 }
 
 .footer-ornament {
-    color: var(--text-gold);
+    color: var(--gold);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-/* Language Switcher */
-.lang-switch {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 100;
+/* Language Switcher & Journal Toggle */
+.top-controls {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1100;
+    display: flex;
+    gap: 0;
+    /* Remove gap, use padding/separator */
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    padding: 0.4rem;
+    border-radius: 100px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(192, 160, 98, 0.1);
 }
 
-.lang-switch select {
-    background: rgba(44, 36, 27, 0.9);
-    color: var(--text-gold);
-    border: 1px solid var(--text-gold);
-    padding: 0.5rem;
-    border-radius: var(--radius-main);
-    font-family: var(--font-sans);
+.lang-switch-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 0.5rem;
+    border-right: 1px solid rgba(192, 160, 98, 0.3);
+    margin-right: 0.5rem;
+}
+
+.lang-switch-wrapper .icon {
+    position: absolute;
+    left: 0.8rem;
+    z-index: 1;
+    font-size: 1.1rem;
+    pointer-events: none;
+    color: var(--gold);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-icon-select {
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
     cursor: pointer;
-    font-size: 0.9rem;
+    border-radius: 50px;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-icon-select:hover {
+    background: rgba(192, 160, 98, 0.1);
+    color: #fff;
+    text-shadow: 0 0 8px var(--gold);
+}
+
+.btn-icon-select:focus {
+    outline: none;
+    background: rgba(192, 160, 98, 0.2);
+}
+
+/* Journal Button inside bar */
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--gold);
+    padding: 0.5rem 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-icon:hover {
+    background: rgba(192, 160, 98, 0.1);
+    color: #fff;
+    text-shadow: 0 0 8px var(--gold);
+}
+
+.btn-icon .icon {
+    font-size: 1.2rem;
 }
 
 .lang-switch select:focus {
     outline: none;
-    box-shadow: 0 0 10px var(--text-gold);
+    box-shadow: 0 0 10px var(--gold);
 }
 
 @media (max-width: 768px) {
-    .lang-switch {
+    .top-controls {
         position: relative;
         top: 0;
         right: 0;
         margin-bottom: 1rem;
-        display: inline-block;
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -459,96 +745,360 @@ footer {
     }
 }
 
-/* Fan / Horizontal Layout */
+/* Fan / Sector Layout */
 .fan-container {
     position: relative;
     width: 100%;
-    min-height: 150px;
+    height: 750px;
+    /* Space for the arc */
     margin-top: 2rem;
-    padding: 30px 20px;
-    overflow-x: auto;
-    overflow-y: visible;
-    white-space: nowrap;
-    /* Prevent wrapping */
-    display: block;
+    overflow: visible;
+    perspective: 1200px;
 }
 
 .fan-card {
-    display: inline-block;
-    /* Changed from absolute to inline-block */
-    width: 60px;
-    height: 100px;
+    position: absolute;
+    width: 120px;
+    height: 210px;
     background: #4b0d0d;
-    /* Deep Renaissance Maroon */
-    background-image:
-        radial-gradient(circle at 100% 150%, #4b0d0d 24%, #6b1414 25%, #6b1414 28%, #4b0d0d 29%, #4b0d0d 36%, #6b1414 36%, #6b1414 40%, transparent 40%),
-        radial-gradient(circle at 0 150%, #4b0d0d 24%, #6b1414 25%, #6b1414 28%, #4b0d0d 29%, #4b0d0d 36%, #6b1414 36%, #6b1414 40%, transparent 40%),
-        radial-gradient(circle at 50% 100%, #6b1414 10%, #4b0d0d 11%, #4b0d0d 23%, #6b1414 24%, #6b1414 30%, #4b0d0d 31%, #4b0d0d 43%, #6b1414 44%, #6b1414 50%, #4b0d0d 51%, #4b0d0d 63%, #6b1414 64%, #6b1414 71%, transparent 71%),
-        radial-gradient(circle at 100% 50%, #6b1414 5%, #4b0d0d 6%, #4b0d0d 15%, #6b1414 16%, #6b1414 20%, #4b0d0d 21%, #4b0d0d 30%, #6b1414 31%, #6b1414 35%, #4b0d0d 36%, #4b0d0d 45%, #6b1414 46%, #6b1414 49%, transparent 49%),
-        radial-gradient(circle at 0 50%, #6b1414 5%, #4b0d0d 6%, #4b0d0d 15%, #6b1414 16%, #6b1414 20%, #4b0d0d 21%, #4b0d0d 30%, #6b1414 31%, #6b1414 35%, #4b0d0d 36%, #4b0d0d 45%, #6b1414 46%, #6b1414 49%, transparent 49%),
-        radial-gradient(circle at 100% 0, #4b0d0d 24%, #6b1414 25%, #6b1414 28%, #4b0d0d 29%, #4b0d0d 36%, #6b1414 36%, #6b1414 40%, transparent 40%),
-        radial-gradient(circle at 0 0, #4b0d0d 24%, #6b1414 25%, #6b1414 28%, #4b0d0d 29%, #4b0d0d 36%, #6b1414 36%, #6b1414 40%, transparent 40%),
-        radial-gradient(circle at 50% 0, #6b1414 10%, #4b0d0d 11%, #4b0d0d 23%, #6b1414 24%, #6b1414 30%, #4b0d0d 31%, #4b0d0d 43%, #6b1414 44%, #6b1414 50%, #4b0d0d 51%, #4b0d0d 63%, #6b1414 64%, #6b1414 71%, transparent 71%);
-    background-size: 40px 40px;
+    background-image: url('assets/card-back.png');
+    background-size: cover;
+    background-position: center;
     border: 2px solid #c0a062;
-    /* Gold Border */
-    border-radius: 5px;
-    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.5);
-    margin-right: -15px;
-    /* Slight overlap for fan effect */
-    vertical-align: middle;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    transform-origin: top center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    left: 50%;
+    top: 20px;
 }
 
 .fan-card::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
+    inset: 5px;
     border: 1px solid rgba(192, 160, 98, 0.3);
     pointer-events: none;
 }
 
-/* Fallback if image missing */
-.fan-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 1px solid #d4af37;
-    border-radius: 5px;
-    background: #2c1810;
-    z-index: -1;
-}
-
 .fan-card:hover {
-    z-index: 100 !important;
-    box-shadow: 0 0 15px #ffd700;
-    transform: translateY(-10px) scale(1.15);
+    z-index: 1000 !important;
+    box-shadow: 0 0 30px #ffd700, 0 0 60px rgba(192, 160, 98, 0.4);
+    /* In JS we will only manage rotation, here we can scale and lift */
+    /* The JS will set the base transform, so we should use variables or careful override */
 }
 
+/* We'll use CSS variables set by JS to handle the base rotation/position */
 .fan-card.selected {
-    box-shadow: 0 0 20px #00ff00;
-    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #c0a062;
+    border: 2px solid #fff;
+    opacity: 1;
+    /* transform is handled by JS for the holding area */
     pointer-events: none;
 }
 
-/* Reversal utility class */
-.reversed-img {
+/* History Overlay */
+.history-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.history-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.history-panel {
+    background: var(--bg-base);
+    /* #1a1510 */
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    border: 1px solid var(--gold);
+    border-radius: var(--radius-main);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.history-overlay:not(.hidden) .history-panel {
+    transform: translateY(0);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(192, 160, 98, 0.2);
+}
+
+.history-header h2 {
+    color: var(--gold);
+    font-family: var(--font-serif);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: var(--gold-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.history-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.history-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(192, 160, 98, 0.1);
+}
+
+.history-item-date {
+    display: block;
+    color: var(--gold-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.4rem;
+}
+
+.history-item-cards {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.history-mini-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.history-mini-card img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.3rem;
+}
+
+.history-mini-card.reversed img {
     transform: rotate(180deg);
 }
 
-.spread-card.reversed .spread-info h4::after {
-    content: ' (Rx)';
-    font-size: 0.8em;
-    opacity: 0.7;
+.history-mini-name {
+    font-size: 0.7rem;
+    color: #ccc;
+    text-align: center;
+    line-height: 1.2;
 }
 
-/* Hide the initial deck stack when fan is active */
-.deck-container.hidden {
-    display: none;
+.history-footer {
+    padding: 1rem;
+    border-top: 1px solid rgba(192, 160, 98, 0.2);
+    text-align: center;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+/* ===== Celtic Cross Layout ===== */
+.spread-container.celtic-cross {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.celtic-cross-left {
+    display: grid;
+    grid-template-areas:
+        ".     crown     ."
+        "past  heart     future"
+        ".     root      .";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.celtic-cross-right {
+    display: flex;
+    flex-direction: column-reverse;
+    /* 7 at bottom, 10 at top */
+    gap: 1.5rem;
+    align-items: center;
+    border-left: 1px solid rgba(192, 160, 98, 0.3);
+    padding-left: 2rem;
+}
+
+/* Slot Positioning */
+/* Slot Positioning */
+/* Slot Positioning */
+.celtic-cross #cardSlot1 {
+    grid-area: heart;
+    z-index: 1;
+    align-self: start;
+    /* Ensure image stays at top as text grows */
+}
+
+/* Slot 2: The Crossing */
+.celtic-cross #cardSlot2 {
+    grid-area: heart;
+    z-index: 2;
+    transform: rotate(90deg) translate(0, 0);
+    pointer-events: none;
+    /* Let clicks pass through to bottom card? Optional. Kept for now */
+    /* Removed fixed dimensions to let it be a standard card rotated */
+    align-self: start;
+    /* Align with Slot 1 image */
+}
+
+/* Ensure inner card is standard size */
+.celtic-cross #cardSlot2 .spread-card,
+.celtic-cross #cardSlot2 .card-inner {
+    width: 220px;
+    height: 380px;
+}
+
+.celtic-cross #cardSlot2 .spread-info {
+    transform: rotate(-90deg) translateY(100%);
+    /* Adjust position of text to be readable below/side */
+    position: absolute;
+    width: 250px;
+    bottom: -60px;
+    left: 50%;
+    margin-left: -125px;
+    pointer-events: auto;
+}
+
+/* Simplified Crossing removed to restore rotation */
+
+.celtic-cross #cardSlot3 {
+    grid-area: root;
+}
+
+.celtic-cross #cardSlot4 {
+    grid-area: past;
+}
+
+.celtic-cross #cardSlot5 {
+    grid-area: crown;
+}
+
+.celtic-cross #cardSlot6 {
+    grid-area: future;
+}
+
+/* Right Staff */
+.celtic-cross #cardSlot7,
+.celtic-cross #cardSlot8,
+.celtic-cross #cardSlot9,
+.celtic-cross #cardSlot7,
+.celtic-cross #cardSlot8,
+.celtic-cross #cardSlot9,
+.celtic-cross #cardSlot10 {
+    width: 180px;
+    /* Slightly smaller staff cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Ensure text is centered */
+}
+
+/* Force centering of the card wrapper itself */
+.celtic-cross #cardSlot7 .spread-card,
+.celtic-cross #cardSlot8 .spread-card,
+.celtic-cross #cardSlot9 .spread-card,
+.celtic-cross #cardSlot10 .spread-card {
+    align-items: center;
+}
+
+/* Force internal elements to center */
+.celtic-cross #cardSlot7 .spread-info,
+.celtic-cross #cardSlot8 .spread-info,
+.celtic-cross #cardSlot9 .spread-info,
+.celtic-cross #cardSlot10 .spread-info {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force specific elements often left-aligned to center */
+.celtic-cross #cardSlot7 .card-history,
+.celtic-cross #cardSlot8 .card-history,
+.celtic-cross #cardSlot9 .card-history,
+.celtic-cross #cardSlot10 .card-history {
+    text-align: center;
+    width: 100%;
+}
+
+.celtic-cross #cardSlot7 .card-inner,
+.celtic-cross #cardSlot8 .card-inner,
+.celtic-cross #cardSlot9 .card-inner,
+.celtic-cross #cardSlot10 .card-inner {
+    height: 300px;
+    width: 170px;
+}
+
+@media (max-width: 900px) {
+    .spread-container.celtic-cross {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .celtic-cross-left {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .celtic-cross-right {
+        flex-direction: column;
+        /* Normal order 7->10 or reverse? Staff is bottom-up usually */
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--gold);
+        padding-top: 2rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2x2 grid for staff on mobile? */
+    }
 }

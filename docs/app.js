@@ -24,14 +24,39 @@ const TRANSLATIONS = {
         'guide_1_text': 'Created in 1491, this is the oldest complete 78-card tarot deck in existence. Unlike other decks of its time, it features fully illustrated pip cards (Minor Arcana) depicting dynamic scenes of daily life, alchemy, and warfare.',
         'guide_2_title': 'The Heroes of Antiquity',
         'guide_2_text': 'The 22 Major Arcana (Trumps) deviate from traditional tarot archetypes. You will meet historical figures from the Roman Empire and biblical history, such as Mato (The Fool), Panfilio, and Nabuchodenasor.',
-        'guide_3_title': 'The Three-Card Spread',
-        'guide_3_text': 'This deck performs a classic Situation-Action-Outcome spread:',
-        'guide_3_li1': 'I. The Situation: The core energy of your current moment.',
-        'guide_3_li2': 'II. The Action: Guidance on what to do (or avoid).',
-        'guide_3_li3': 'III. The Outcome: The potential result if advice is followed.',
-        'guide_3_note': 'Allow the intricate 15th-century imagery to speak to your intuition directly.',
+        'guide_3_title': 'Single Card Reading',
+        'guide_3_text': 'Focus on a single question and draw one card for direct, clear insight.',
+        'guide_3_note': 'Ideal for daily guidance or when you need a straightforward answer.',
+        'guide_4_title': 'Three-Card Spread',
+        'guide_4_text': 'A classic Situation-Action-Outcome spread:',
+        'guide_4_li1': 'I. The Situation: The core energy of your current moment.',
+        'guide_4_li2': 'II. The Action: Guidance on what to do (or avoid).',
+        'guide_4_li3': 'III. The Outcome: The potential result if advice is followed.',
+        'guide_5_title': 'Celtic Cross',
+        'guide_5_text': 'A comprehensive 10-card spread revealing the complete picture of your situation, influences, and potential outcomes.',
+        'guide_5_note': 'Perfect for complex questions requiring deep insight into past, present, future, and hidden forces.',
         'footer_main': 'The Sola Busca Tarot (1491) • Preserved by the Pinacoteca di Brera, Milan',
-        'footer_sub': 'Digital facsimile for historical study and divination'
+        'footer_sub': 'Digital facsimile for historical study and divination',
+        'instr_selecting': 'Select 3 cards from the deck.',
+        'history_title': 'Reading Journal',
+        'btn_save': 'Save to Journal',
+        'btn_clear': 'Clear History',
+        'btn_history': 'Journal',
+        'empty_history': 'Your journal is empty.',
+        'mode_3': 'Three-Card Spread',
+        'mode_1': 'Single Card Reading',
+        'mode_10': 'Celtic Cross',
+        'slot_cc_1': 'The Heart (Present)',
+        'slot_cc_2': 'The Crossing (Challenge)',
+        'slot_cc_3': 'The Root (Unconscious)',
+        'slot_cc_4': 'The Past',
+        'slot_cc_5': 'The Crown (Higher Power)',
+        'slot_cc_6': 'The Future',
+        'slot_cc_7': 'Emotions (Self)',
+        'slot_cc_8': 'External Influences',
+        'slot_cc_9': 'Hopes and Fears',
+        'slot_cc_10': 'The Outcome',
+        'label_history': 'Historical Context'
     },
     'zh-TW': {
         'title': 'Sola Busca 塔羅牌',
@@ -54,14 +79,39 @@ const TRANSLATIONS = {
         'guide_1_text': '創作於 1491 年，這是現存最古老的完整 78 張塔羅牌。與當時的其他牌組不同，它擁有完全圖繪的數字牌（小阿爾克那），描繪了日常生活、煉金術和戰爭的動態場景。',
         'guide_2_title': '古代英雄',
         'guide_2_text': '22 張大阿爾克那（王牌）與傳統塔羅牌原型不同。您將遇見來自羅馬帝國和聖經歷史的歷史人物，如 Mato（愚者）、Panfilio 和 Nabuchodenasor。',
-        'guide_3_title': '三牌陣法',
-        'guide_3_text': '此牌組使用經典的「現狀-行動-結果」牌陣：',
-        'guide_3_li1': 'I. 現狀：您當下的核心能量。',
-        'guide_3_li2': 'II. 行動：關於做什麼（或避免什麼）的指引。',
-        'guide_3_li3': 'III. 結果：如果遵循建議可能產生的結果。',
-        'guide_3_note': '讓精緻的 15 世紀圖像直接與您的直覺對話。',
+        'guide_3_title': '單牌占卜',
+        'guide_3_text': '專注於一個問題，抽取一張牌獲得直接、清晰的洞察。',
+        'guide_3_note': '適合日常指引或需要直接答案時使用。',
+        'guide_4_title': '三牌陣法',
+        'guide_4_text': '經典的「情境-行動-結果」陣法：',
+        'guide_4_li1': 'I. 情境：當下核心能量。',
+        'guide_4_li2': 'II. 行動：關於做什麼（或避免什麼）的指引。',
+        'guide_4_li3': 'III. 結果：如果遵循建議可能產生的結果。',
+        'guide_5_title': '凱爾特十字法',
+        'guide_5_text': '全面的 10 張牌陣法，揭示情境、影響和潛在結果的完整圖景。',
+        'guide_5_note': '適合需要深入洞察過去、現在、未來和隱藏力量的複雜問題。',
         'footer_main': 'Sola Busca 塔羅牌 (1491) • 米蘭布雷拉畫廊珍藏',
-        'footer_sub': '用於歷史研究和占卜的數位摹本'
+        'footer_sub': '用於歷史研究和占卜的數位摹本',
+        'instr_selecting': '請從牌組中選擇 3 張牌。',
+        'history_title': '占卜紀錄',
+        'btn_save': '儲存至紀錄',
+        'btn_clear': '清除紀錄',
+        'btn_history': '紀錄',
+        'empty_history': '尚無紀錄。',
+        'mode_3': '三牌陣法',
+        'mode_1': '單牌占卜',
+        'mode_10': '凱爾特十字法',
+        'slot_cc_1': '核心 (現狀)',
+        'slot_cc_2': '阻礙 (挑戰)',
+        'slot_cc_3': '根源 (潛意識)',
+        'slot_cc_4': '過去',
+        'slot_cc_5': '冠冕 (高層力量)',
+        'slot_cc_6': '未來',
+        'slot_cc_7': '自我 (情緒)',
+        'slot_cc_8': '外在影響',
+        'slot_cc_9': '希望與恐懼',
+        'slot_cc_10': '結果',
+        'label_history': '歷史背景'
     }
 };
 
@@ -70,8 +120,11 @@ const rawMajors = [
     {
         n: '0', img: 'major-00-mato.jpg',
         name: 'Mato (The Fool)', name_zh: 'Mato (愚者)',
-        desc: 'Divine madness, freedom, new journey.', desc_zh: '神聖的瘋狂、自由、新的旅程。',
-        desc_rev: 'Insanity, poor judgment, recklessness.', desc_rev_zh: '瘋狂、判斷力差、魯莽。'
+        desc: 'Divine madness, freedom, new journey. Mato represents the innocent soul embarking on a spiritual quest.',
+        desc_zh: '神聖的瘋狂、自由、新的旅程。Mato 代表著踏上精神追求的純真靈魂。',
+        desc_rev: 'Insanity, poor judgment, recklessness.', desc_rev_zh: '瘋狂、判斷力差、魯莽。',
+        history: 'In the Sola Busca, Mato is shown as a festive figure, possibly a court jester, playing a bagpipe.',
+        history_zh: '在 Sola Busca 中，Mato 被描繪成一個節日人物，可能是一個宮廷弄臣，正在吹奏風笛。'
     },
     {
         n: 'I', img: 'major-01-panfilio.jpg',
@@ -94,8 +147,11 @@ const rawMajors = [
     {
         n: 'IIII', img: 'major-04-mario.jpg',
         name: 'Mario (The Emperor)', name_zh: 'Mario (皇帝)',
-        desc: 'Authority, structure, control.', desc_zh: '權威、結構、控制。',
-        desc_rev: 'Tyranny, rigidity, loss of control.', desc_rev_zh: '暴政、僵化、失控。'
+        desc: 'Authority, structure, control. Mario embodies the power of the Roman general Gaius Marius.',
+        desc_zh: '權威、結構、控制。Mario 體現了羅馬將軍蓋烏斯·馬略的力量。',
+        desc_rev: 'Tyranny, rigidity, loss of control.', desc_rev_zh: '暴政、僵化、失控。',
+        history: 'Gaius Marius was a Roman general and statesman, known for his reforms of Roman armies.',
+        history_zh: '蓋烏斯·馬略（Gaius Marius）是羅馬將軍和政治家，以改革羅馬軍隊而聞名。'
     },
     {
         n: 'V', img: 'major-05-catulo.jpg',
@@ -118,8 +174,11 @@ const rawMajors = [
     {
         n: 'VIII', img: 'major-08-nerone.jpg',
         name: 'Nerone (Strength)', name_zh: 'Nerone (力量)',
-        desc: 'Courage, inner strength, patience.', desc_zh: '勇氣、內在力量、耐心。',
-        desc_rev: 'Self-doubt, weakness, insecurity.', desc_rev_zh: '自我懷疑、軟弱、不安全感。'
+        desc: 'Courage, inner strength, patience. Represented by Emperor Nero, reflecting raw power and complex will.',
+        desc_zh: '勇氣、內在力量、耐心。由尼祿皇帝代表，反映了原始的力量和複雜的意志。',
+        desc_rev: 'Self-doubt, weakness, insecurity.', desc_rev_zh: '自我懷疑、軟弱、不安全感。',
+        history: 'Nero was the last Roman emperor of the Julio-Claudian dynasty; his reign is often associated with tyranny.',
+        history_zh: '尼祿（Nero）是朱里亞·克勞狄王朝的最後一位羅馬皇帝；他的統治通常與暴政聯繫在一起。'
     },
     {
         n: 'VIIII', img: 'major-09-falco.jpg',
@@ -229,7 +288,8 @@ const ranks = [
 let currentLang = 'en';
 let deck = [];
 let isShuffled = false;
-let selectedCards = []; // New state for manually selected cards
+let selectedCards = [];
+let readingMode = 3; // Default to 3 cards
 
 // Build Deck with full translation data
 rawMajors.forEach(m => {
@@ -237,8 +297,9 @@ rawMajors.forEach(m => {
         id: `major-${m.n}`,
         type: 'major',
         imageUrl: `assets/cards/${m.img}`,
-        en: { name: m.name, desc: m.desc, desc_rev: m.desc_rev },
-        'zh-TW': { name: m.name_zh, desc: m.desc_zh, desc_rev: m.desc_rev_zh }
+        history: m.history || null,
+        en: { name: m.name, desc: m.desc, desc_rev: m.desc_rev, history: m.history },
+        'zh-TW': { name: m.name_zh, desc: m.desc_zh, desc_rev: m.desc_rev_zh, history: m.history_zh }
     });
 });
 
@@ -271,12 +332,80 @@ const spreadContainer = document.getElementById('spreadContainer');
 const instructionText = document.getElementById('instructionText');
 const langSelect = document.getElementById('langSelect');
 
+// History Elements
+const historyOverlay = document.getElementById('historyOverlay');
+const historyContent = document.getElementById('historyContent');
+const historyToggleButton = document.getElementById('historyToggleButton');
+const closeHistoryButton = document.getElementById('closeHistoryButton');
+const clearHistoryButton = document.getElementById('clearHistoryButton');
+const saveReadingButton = document.getElementById('saveReadingButton');
+const saveActionContainer = document.getElementById('saveActionContainer');
+const modeButtons = document.querySelectorAll('.btn-mode');
+
+// Audio Context for synthetic sounds
+let audioCtx = null;
+
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+function playFlipSound() {
+    if (!audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.1);
+
+    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.1);
+}
+
+function playShuffleSound() {
+    if (!audioCtx) return;
+    const bufferSize = audioCtx.sampleRate * 0.5;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+    }
+
+    const noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
+
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    noise.start();
+}
+
+
 // ===== Functions =====
 
 // ===== Functions =====
 
 function updateLanguage(lang) {
     currentLang = lang;
+    // Save language preference to localStorage
+    localStorage.setItem('sola_busca_language', lang);
 
     // Update Static Text
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -327,13 +456,34 @@ function renderFan() {
     }
     fanContainer.innerHTML = '';
 
-    // Render 78 cards in a simple horizontal layout
     const totalCards = 78;
+    const angleRange = 120; // Tighter arc
+    const startAngle = -60; // Start arc degree
+    const radius = 400; // Distance from pivot
 
     for (let i = 0; i < totalCards; i++) {
         const cardEl = document.createElement('div');
         cardEl.className = 'fan-card';
         cardEl.dataset.index = i;
+
+        // Calculate rotation for each card
+        const angle = startAngle + (i / (totalCards - 1)) * angleRange;
+
+        // Store base transform for hover state management in CSS or JS
+        // Inverted: move down from top pivot point
+        const baseTransform = `translate(-50%, 0) rotate(${angle}deg) translateY(${radius}px)`;
+        cardEl.style.transform = baseTransform;
+        cardEl.style.zIndex = i;
+
+        // Hover events for "Pop Out" effect
+        cardEl.addEventListener('mouseenter', () => {
+            cardEl.style.transform = `translate(-50%, 0) rotate(${angle}deg) translateY(${radius + 40}px) scale(1.1)`;
+        });
+        cardEl.addEventListener('mouseleave', () => {
+            if (!cardEl.classList.contains('selected')) {
+                cardEl.style.transform = baseTransform;
+            }
+        });
 
         cardEl.addEventListener('click', () => handleCardSelect(cardEl, i));
 
@@ -342,10 +492,39 @@ function renderFan() {
 }
 
 function handleCardSelect(cardEl, index) {
-    if (selectedCards.length >= 3) return;
+    if (selectedCards.length >= readingMode) return;
     if (cardEl.classList.contains('selected')) return;
 
     cardEl.classList.add('selected');
+
+    // Add selection order number
+    const numBadge = document.createElement('div');
+    numBadge.className = 'selection-number';
+    numBadge.textContent = selectedCards.length + 1;
+    cardEl.appendChild(numBadge);
+
+    // Move to fixed visual "slot" to prevent overlap
+    const posIndex = selectedCards.length;
+    let xOffset = 0;
+
+    if (readingMode === 3) {
+        // -180, 0, +180 (Wider spacing to prevent overlap)
+        xOffset = (posIndex - 1) * 180;
+    } else if (readingMode === 10) {
+        // Tighter packing for 10 cards? Or just stack them visually in center
+        // Let's fan them out slightly or pile them
+        xOffset = (posIndex - 4.5) * 40; // Dense spread
+    } else {
+        // Center
+        xOffset = 0;
+    }
+
+    // Override transform completely: center X + offset, fixed Y down
+    // Note: base transform used translate(-50%, 0), so we keep that relative center
+    cardEl.style.transform = `translate(-50%, 0) translateX(${xOffset}px) translateY(60px) rotate(0deg) scale(1.15)`;
+    cardEl.style.opacity = "1";
+    // Fix Bug 1: Increment Z-Index so later selections are on top
+    cardEl.style.zIndex = 2000 + selectedCards.length;
 
     // Randomly interact with the "real" deck
     // We don't just pick index 'i' because the rendered fan is just visual 
@@ -376,15 +555,30 @@ function handleCardSelect(cardEl, index) {
         isReversed: isReversed
     });
 
-    if (selectedCards.length === 3) {
-        setTimeout(revealSpread, 500);
+    initAudio();
+    playFlipSound();
+
+    if (selectedCards.length === readingMode) {
+        setTimeout(revealSpread, 800);
     }
 }
 
 function shuffleDeck() {
+    initAudio();
+    playShuffleSound();
+
     const t = TRANSLATIONS[currentLang];
     instructionText.textContent = t['instr_shuffling'];
     deckStack.classList.add('shuffling');
+
+    // Create temporary piles for animation
+    const pile1 = document.createElement('div');
+    pile1.className = 'shuffle-pile shuffle-left';
+    const pile2 = document.createElement('div');
+    pile2.className = 'shuffle-pile shuffle-right';
+
+    deckStack.appendChild(pile1);
+    deckStack.appendChild(pile2);
 
     // Actual Fisher-Yates Shuffle of the `deck` array
     for (let i = deck.length - 1; i > 0; i--) {
@@ -395,21 +589,33 @@ function shuffleDeck() {
     selectedCards = []; // Reset selection
 
     setTimeout(() => {
+        // Animation complete cleanup
+        pile1.remove();
+        pile2.remove();
         deckStack.classList.remove('shuffling');
-        instructionText.textContent = "Select 3 cards from the deck."; // Custom text without translation key for now or update dict
+
+        // Dynamic instruction based on reading mode
+        const modeText = readingMode === 10 ? '10 cards' : readingMode === 3 ? '3 cards' : '1 card';
+        const modeTextZh = readingMode === 10 ? '10 張牌' : readingMode === 3 ? '3 張牌' : '1 張牌';
+        instructionText.textContent = currentLang === 'en'
+            ? `Select ${modeText} from the deck.`
+            : `請從牌組中選擇 ${modeTextZh}。`;
         shuffleBtn.classList.add('hidden');
         shuffleBtn.disabled = true;
-        // drawBtn.disabled = false; // Disable draw button, we use auto-reveal or fan interaction
-        drawBtn.classList.add('hidden'); // Hide reveal button, fan interaction drives it
+
+        drawBtn.classList.add('hidden');
+
+        // Fix Bug 3: Hide mode selection during reading
+        document.querySelector('.reading-modes').classList.add('hidden');
 
         isShuffled = true;
 
         renderFan();
-    }, 1500);
+    }, 1200); // 400ms split + 600ms riffle + buffer
 }
 
 function revealSpread() {
-    if (!isShuffled || selectedCards.length < 3) return;
+    if (!isShuffled || selectedCards.length < readingMode) return;
 
     // cleanup fan
     const fanContainer = document.getElementById('fanContainer');
@@ -418,7 +624,79 @@ function revealSpread() {
     document.getElementById('deckContainer').classList.add('hidden');
     spreadContainer.classList.remove('hidden');
 
-    const slots = ['cardSlot1', 'cardSlot2', 'cardSlot3'];
+    // spreadContainer is global
+    spreadContainer.innerHTML = ''; // Clear existing static slots
+    spreadContainer.classList.remove('hidden');
+    spreadContainer.classList.remove('celtic-cross');
+
+    let slots = [];
+    if (readingMode === 10) {
+        spreadContainer.classList.add('celtic-cross');
+
+        // Create Left and Right containers
+        const leftContainer = document.createElement('div');
+        leftContainer.className = 'celtic-cross-left';
+
+        const rightContainer = document.createElement('div');
+        rightContainer.className = 'celtic-cross-right';
+
+        spreadContainer.appendChild(leftContainer);
+        spreadContainer.appendChild(rightContainer);
+
+        // Generate 10 slots
+        for (let i = 1; i <= 10; i++) {
+            const slotEl = document.createElement('div');
+            slotEl.className = 'spread-card-slot';
+            slotEl.id = `cardSlot${i}`;
+
+            const labelEl = document.createElement('div');
+            labelEl.className = 'slot-label';
+            labelEl.setAttribute('data-i18n', `slot_cc_${i}`);
+            labelEl.textContent = TRANSLATIONS[currentLang][`slot_cc_${i}`];
+
+            const placeholderEl = document.createElement('div');
+            placeholderEl.className = 'card-placeholder';
+
+            slotEl.appendChild(labelEl);
+            slotEl.appendChild(placeholderEl);
+
+            // Append to correct container
+            if (i <= 6) {
+                leftContainer.appendChild(slotEl);
+            } else {
+                rightContainer.appendChild(slotEl);
+            }
+            slots.push(`cardSlot${i}`);
+        }
+    } else {
+        // Standard Flex Layout (1 or 3)
+        // Re-create standard slots dynamically to match new approach
+        // Or just use appended logic
+        const count = readingMode;
+        for (let i = 1; i <= count; i++) {
+            const slotEl = document.createElement('div');
+            slotEl.className = 'spread-card-slot';
+            slotEl.id = `cardSlot${i}`;
+
+            const labelEl = document.createElement('div');
+            labelEl.className = 'slot-label';
+            const labelKey = count === 1 ? 'slot_1' : `slot_${i}`; // Reuse slot_1 for single? Or Make generic?
+            // Actually existing code had slot_1, slot_2, slot_3 hardcoded for 3-card.
+            // For Single card, maybe just "The Insight"?
+            // Existing logic: "The Situation" used for slot 1.
+
+            labelEl.setAttribute('data-i18n', labelKey);
+            labelEl.textContent = TRANSLATIONS[currentLang][labelKey] || (count === 1 ? 'The Insight' : `Card ${i}`);
+
+            const placeholderEl = document.createElement('div');
+            placeholderEl.className = 'card-placeholder';
+
+            slotEl.appendChild(labelEl);
+            slotEl.appendChild(placeholderEl);
+            spreadContainer.appendChild(slotEl);
+            slots.push(`cardSlot${i}`);
+        }
+    }
 
     slots.forEach((slotId, index) => {
         const selection = selectedCards[index];
@@ -431,19 +709,26 @@ function revealSpread() {
         // Determine text and class
         const descText = isReversed && content.desc_rev ? content.desc_rev : content.desc;
         const revClass = isReversed ? 'reversed' : '';
+        const historyLabel = TRANSLATIONS[currentLang]['label_history'];
 
-        // Create Card HTML with data-card-id for re-translation
+        // Create Card HTML with 3D flip structure
         const cardHtml = `
-            <div class="spread-card hidden-card ${revClass}" data-card-id="${card.id}" style="animation-delay: ${index * 0.5}s">
-                <div class="img-wrapper">
-                    <img src="${card.imageUrl}" alt="${content.name}" class="${isReversed ? 'reversed-img' : ''}">
+            <div class="spread-card hidden-card ${revClass}" data-card-id="${card.id}" style="animation-delay: ${index * 0.4}s">
+                <div class="card-inner">
+                    <div class="card-back"></div>
+                    <div class="card-front">
+                        <div class="img-wrapper">
+                            <img src="${card.imageUrl}" alt="${content.name}">
+                        </div>
+                    </div>
                 </div>
                 <div class="spread-info">
                     <h4>${content.name}</h4>
                     <p>${descText}</p>
+                    ${content.history ? `<div class="card-history"><strong>${historyLabel}:</strong> ${content.history}</div>` : ''}
                 </div>
             </div>
-        `;
+            `;
 
         slotEl.querySelector('.card-placeholder').innerHTML = cardHtml;
 
@@ -453,10 +738,100 @@ function revealSpread() {
         }, index * 500 + 100);
     });
 
+    // Special handling for Celtic Cross: Move Card 2 info to Card 1 area
+    if (readingMode === 10) {
+        const slot1 = document.getElementById('cardSlot1');
+        const slot2 = document.getElementById('cardSlot2');
+        if (slot1 && slot2) {
+            const info2 = slot2.querySelector('.spread-info');
+            const card1Wrapper = slot1.querySelector('.spread-card');
+            if (info2 && card1Wrapper) {
+                // Add a separator style or wrapper if needed, but simple append works for vertical stack
+                info2.style.marginTop = '1rem';
+                info2.style.borderTop = '1px solid var(--gold)';
+                info2.style.paddingTop = '1rem';
+                // Optional: Add a label to distinguish
+                const label = document.createElement('h4');
+                label.style.fontSize = '0.9rem';
+                label.style.marginBottom = '0.5rem';
+                label.style.color = 'var(--gold)';
+                label.textContent = TRANSLATIONS[currentLang]['slot_cc_2']; // "The Crossing"
+                info2.insertBefore(label, info2.firstChild);
+
+                card1Wrapper.appendChild(info2);
+            }
+        }
+    }
+
     setTimeout(() => {
         resetBtn.classList.remove('hidden');
+        saveActionContainer.classList.remove('hidden');
         instructionText.textContent = TRANSLATIONS[currentLang]['instr_complete'];
     }, 2000);
+}
+
+// ===== History Logic =====
+
+function saveReading() {
+    if (selectedCards.length < 1) return; // Allow saving any reading mode
+
+    const history = JSON.parse(localStorage.getItem('sola_busca_history') || '[]');
+    const newEntry = {
+        date: new Date().toLocaleString(currentLang === 'en' ? 'en-US' : 'zh-TW'),
+        cards: selectedCards.map(s => ({
+            id: s.card.id,
+            name: s.card[currentLang].name,
+            img: s.card.imageUrl,
+            isReversed: s.isReversed
+        }))
+    };
+
+    history.unshift(newEntry);
+    localStorage.setItem('sola_busca_history', JSON.stringify(history.slice(0, 20))); // Keep last 20
+
+    saveReadingButton.disabled = true;
+    saveReadingButton.innerHTML = "✓ " + TRANSLATIONS[currentLang]['btn_save'];
+
+    renderHistoryUI();
+}
+
+function loadHistory() {
+    renderHistoryUI();
+}
+
+function renderHistoryUI() {
+    const history = JSON.parse(localStorage.getItem('sola_busca_history') || '[]');
+
+    if (history.length === 0) {
+        historyContent.innerHTML = `<p class="empty-msg" data-i18n="empty_history">${TRANSLATIONS[currentLang]['empty_history']}</p>`;
+        return;
+    }
+
+    historyContent.innerHTML = history.map(entry => `
+            <div class="history-item">
+            <span class="history-item-date">${entry.date}</span>
+            <div class="history-item-cards">
+                ${entry.cards.map(c => `
+                    <div class="history-mini-card ${c.isReversed ? 'reversed' : ''}">
+                        <img src="${c.img}" alt="${c.name}">
+                        <span class="history-mini-name">${c.name}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+            `).join('');
+}
+
+function clearHistory() {
+    localStorage.removeItem('sola_busca_history');
+    renderHistoryUI();
+}
+
+function toggleHistory() {
+    historyOverlay.classList.toggle('hidden');
+    if (!historyOverlay.classList.contains('hidden')) {
+        renderHistoryUI();
+    }
 }
 
 function resetReading() {
@@ -479,10 +854,24 @@ function resetReading() {
     drawBtn.disabled = true;
 
     resetBtn.classList.add('hidden');
+    saveActionContainer.classList.add('hidden');
+    saveReadingButton.disabled = false;
+    saveReadingButton.innerHTML = `<span class="btn-ornament">❦</span> <span data-i18n="btn_save">${TRANSLATIONS[currentLang]['btn_save']}</span> <span class="btn-ornament">❦</span>`;
 
     instructionText.textContent = TRANSLATIONS[currentLang]['instr_initial'];
 
-    document.querySelectorAll('.card-placeholder').forEach(el => el.innerHTML = '');
+    // Clear slots
+    spreadContainer.innerHTML = '';
+
+    // Restore mode selection
+    document.querySelector('.reading-modes').classList.remove('hidden');
+}
+
+function setReadingMode(mode) {
+    readingMode = parseInt(mode);
+    modeButtons.forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.mode) === readingMode);
+    });
 }
 
 // Event Listeners
@@ -492,10 +881,31 @@ resetBtn.addEventListener('click', resetReading);
 
 langSelect.addEventListener('change', (e) => {
     updateLanguage(e.target.value);
+    renderHistoryUI(); // Refresh history text
+});
+
+historyToggleButton.addEventListener('click', toggleHistory);
+closeHistoryButton.addEventListener('click', toggleHistory);
+clearHistoryButton.addEventListener('click', clearHistory);
+saveReadingButton.addEventListener('click', saveReading);
+
+historyOverlay.addEventListener('click', (e) => {
+    if (e.target === historyOverlay) toggleHistory();
+});
+
+modeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (!isShuffled) {
+            setReadingMode(btn.dataset.mode);
+        }
+    });
 });
 
 // Init
 console.log("Sola Busca Divination App Initialized");
 document.addEventListener('DOMContentLoaded', () => {
-    updateLanguage('en');
+    // Load saved language preference or default to 'en'
+    const savedLang = localStorage.getItem('sola_busca_language') || 'en';
+    langSelect.value = savedLang; // Update dropdown to match
+    updateLanguage(savedLang);
 });
